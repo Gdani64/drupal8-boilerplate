@@ -47,3 +47,9 @@
 /robots.txt
 /update.php
 /web.config
+
+/db/
+/app/
+
+!db/.gitkeep
+!app/.gitkeep
