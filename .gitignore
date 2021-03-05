@@ -48,6 +48,7 @@
 /update.php
 /web.config
 
+/.idea/
 /db/
 #/app/
 
