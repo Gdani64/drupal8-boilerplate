@@ -49,7 +49,7 @@
 /web.config
 
 /db/
-/app/
+#/app/
 
 !db/.gitkeep
-!app/.gitkeep
+#!app/.gitkeep
