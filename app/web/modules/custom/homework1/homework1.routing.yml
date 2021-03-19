@@ -1,0 +1,67 @@
+# This file brings everything together. Very nifty!
+
+# Route name can be used in several places; e.g. links, redirects, and local
+# actions.
+entity.homework1_homework1entity.canonical:
+  path: '/homework1_homework1entity/{homework1_homework1entity}'
+  defaults:
+    # Calls the view controller, defined in the annotation of the homework1_entity
+    # entity. This marks this route as belonging to this entity type.
+    _entity_view: 'homework1_homework1entity'
+    _title: 'Homework1Entity content'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix ('view')
+    # as the $operation parameter to checkAccess().
+    _entity_access: 'homework1_homework1entity.view'
+
+entity.homework1_homework1entity.collection:
+  path: '/homework1_homework1entity/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the homework1_entity entity.
+    _entity_list: 'homework1_homework1entity'
+    _title: 'Homework1Entity list'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view homework1_entity entity'
+
+homework1.homework1_entity_add:
+  path: '/homework1_homework1entity/add'
+  defaults:
+    # Calls the form.add controller, defined in the homework1_entity entity.
+    _entity_form: homework1_homework1entity.default
+    _title: 'Add homework1_entity'
+  requirements:
+    # Use the entity's access controller. _entity_create_access tells the router
+    # to use the access controller's checkCreateAccess() method instead of
+    # checkAccess().
+    _entity_create_access: 'homework1_homework1entity'
+
+entity.homework1_homework1entity.edit_form:
+  path: '/homework1_homework1entity/{homework1_homework1entity}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the homework1_entity entity.
+    _entity_form: homework1_homework1entity.default
+    _title: 'Edit homework1_entity'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix
+    # ('update') as the $operation parameter to checkAccess().
+    _entity_access: 'homework1_homework1entity.update'
+
+entity.homework1_homework1entity.delete_form:
+  path: '/homework1_entity/{homework1_homework1entity}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the homework1_entity entity.
+    _entity_form: homework1_homework1entity.delete
+    _title: 'Delete homework1_entity'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix
+    # ('delete') as the $operation parameter to checkAccess().
+    _entity_access: 'homework1_homework1entity.delete'
+
+homework1.homework1entity_settings:
+  path: '/admin/structure/homework1_homework1entity_settings'
+  defaults:
+    _form: '\Drupal\homework1\Form\Homework1EntitySettingsForm'
+    _title: 'Homework1Entity settings'
+  requirements:
+    _permission: 'administer homework1_entity entity'

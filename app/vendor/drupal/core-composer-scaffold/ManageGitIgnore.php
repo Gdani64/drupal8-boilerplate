@@ -5,7 +5,7 @@ namespace Drupal\Composer\Plugin\Scaffold;
 use Composer\IO\IOInterface;
 
 /**
- * Manage the .gitkeep file.
+ * Manage the .gitignore file.
  *
  * @internal
  */
@@ -50,8 +50,8 @@ class ManageGitIgnore {
       return;
     }
 
-    // Accumulate entries to add to .gitkeep, sorted into buckets based on the
-    // location of the .gitkeep file the entry should be added to.
+    // Accumulate entries to add to .gitignore, sorted into buckets based on the
+    // location of the .gitignore file the entry should be added to.
     $add_to_git_ignore = [];
     foreach ($files as $scaffoldResult) {
       $path = $scaffoldResult->destination()->fullPath();
@@ -65,7 +65,7 @@ class ManageGitIgnore {
         }
       }
     }
-    // Write out the .gitkeep files one at a time.
+    // Write out the .gitignore files one at a time.
     foreach ($add_to_git_ignore as $dir => $entries) {
       $this->addToGitIgnore($dir, $entries);
     }
@@ -87,30 +87,30 @@ class ManageGitIgnore {
       return $options->gitIgnore();
     }
 
-    // Do not manage .gitkeep if there is no repository here.
+    // Do not manage .gitignore if there is no repository here.
     if (!Git::isRepository($this->io, $this->dir)) {
       return FALSE;
     }
 
-    // If the composer.json did not specify whether or not .gitkeep files
+    // If the composer.json did not specify whether or not .gitignore files
     // should be managed, then manage them if the vendor directory is ignored.
     return Git::checkIgnore($this->io, 'vendor', $this->dir);
   }
 
   /**
-   * Adds a set of entries to the specified .gitkeep file.
+   * Adds a set of entries to the specified .gitignore file.
    *
    * @param string $dir
    *   Path to directory where gitignore should be written.
    * @param string[] $entries
-   *   Entries to write to .gitkeep file.
+   *   Entries to write to .gitignore file.
    */
   protected function addToGitIgnore($dir, array $entries) {
     sort($entries);
-    $git_ignore_path = $dir . '/.gitkeep';
+    $git_ignore_path = $dir . '/.gitignore';
     $contents = '';
 
-    // Appending to existing .gitkeep files.
+    // Appending to existing .gitignore files.
     if (file_exists($git_ignore_path)) {
       $contents = file_get_contents($git_ignore_path);
       if (!empty($contents) && substr($contents, -1) != "\n") {

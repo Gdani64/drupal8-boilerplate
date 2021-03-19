@@ -1,0 +1,11 @@
+# All action links for this module
+
+content_entity_example.contact_add:
+  # Which route will be called by the link
+  route_name: homework1.homework1_entity_add
+  title: 'Add homework1 entity'
+
+  # Where will the link appear, defined by route name.
+  appears_on:
+    - entity.homework1_homework1entity.collection
+    - entity.homework1_homework1entity.canonical

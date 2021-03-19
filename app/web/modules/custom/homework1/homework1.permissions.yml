@@ -1,0 +1,10 @@
+'delete homework1_entity entity':
+  title: Delete entity content.
+'add homework1_entity entity':
+  title: Add entity content
+'view homework1_entity entity':
+  title: View entity content
+'edit homework1_entity entity':
+  title: Edit entity content
+'administer homework1_entity entity':
+  title: Administer settings

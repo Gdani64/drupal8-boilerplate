@@ -1,0 +1,22 @@
+# Define the 'local' links for the module
+
+homework1_entity.settings_tab:
+  route_name: homework1.homework1entity_settings
+  title: Settings
+  base_route: homework1.homework1entity_settings
+
+homework1_entity.view:
+  route_name: entity.homework1_homework1entity.canonical
+  base_route: entity.homework1_homework1entity.canonical
+  title: View
+
+homework1_entity.page_edit:
+  route_name: entity.homework1_homework1entity.edit_form
+  base_route: entity.homework1_homework1entity.canonical
+  title: Edit
+
+homework1_entity.delete_confirm:
+  route_name:  entity.homework1_homework1entity.delete_form
+  base_route:  entity.homework1_homework1entity.canonical
+  title: Delete
+  weight: 10

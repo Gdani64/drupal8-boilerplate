@@ -1,0 +1,11 @@
+# Define the menu links for this module
+
+entity.homework1_homework1entity.collection:
+  title: 'Homework1 Entity Example'
+  route_name: entity.homework1_homework1entity.collection
+  description: 'List homework1 entities'
+homework1_homework1entity.admin.structure.settings:
+  title: 'Contact settings'
+  description: 'Configure homework1 entity'
+  route_name:  homework1.homework1entity_settings
+  parent: system.admin_structure

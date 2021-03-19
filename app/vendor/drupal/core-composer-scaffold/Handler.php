@@ -174,7 +174,7 @@ class Handler {
       $scaffold_results[] = GenerateAutoloadReferenceFile::generateAutoload($this->io, $this->rootPackageName(), $web_root, $this->getVendorPath());
     }
 
-    // Add the managed scaffold files to .gitkeep if applicable.
+    // Add the managed scaffold files to .gitignore if applicable.
     $gitIgnoreManager = new ManageGitIgnore($this->io, getcwd());
     $gitIgnoreManager->manageIgnored($scaffold_results, $scaffold_options);
 
